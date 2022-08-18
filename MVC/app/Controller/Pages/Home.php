@@ -8,11 +8,14 @@
 
 namespace app\Controller\Pages;
 
+use \App\Utils\View;
+/*Recebendo conteúdos das views.*/
+
 class Home{
 
     /*Método para retornar o conteúdo (view) da classe Home. Retorna uma string.*/
 
     public static function getHome(){
-        return 'Olá mundo!';
+        return View::render('Pages/Home');
     }
 }
