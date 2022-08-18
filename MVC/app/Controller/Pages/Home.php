@@ -4,6 +4,8 @@
 
 /*Essa classe "Home" é para gerenciar todas as requisições que chegarem na home do site.*/
 
+/*Um detalhe importante é sobre o uso de maiúsculas no nome deste controlador. Acredito que foi usado para diferenciar de palavra reservada.*/
+
 namespace app\Controller\Pages;
 
 class Home{
