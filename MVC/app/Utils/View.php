@@ -18,13 +18,23 @@ class View{
         //Retorno condicional. Caso haja o conteúdo na variável, retornará o conteúdo, caso não exista, retornará vazio.
     }
 
-    public static function render($view){
+    public static function render($view, $vars = []){
         //Método responsável por retornar o conteúdo renderizado de uma view, ou seja com quaisquer variáveis para deixar a página dinâmica. O parâmetro é uma string ($view). Ele irá retornar uma string.
+
+        //$vars é uma array para receber o conteúdo dinâmico. Tanto strings, quanto numéricos.
         
         $contentView = self::getContentView($view);
         //Criada variável do conteúdo da view. Recebe o conteúdo da view.
 
-        return $contentView;
+        //Criando a parte do conteúdo dinâmico.
+
+        $keys = array_keys($vars);  //Varrendo o array e detectando as chaves.
+
+        $keys = array_map(function($item){
+            return '{{'.$item.'}}';
+        },$keys);   //Mapeando os dados do array.
+
+        return str_replace($keys,array_values($vars),$contentView); //Nesta nova atualização foi inserido o conteúdo dinâmico do array.
         //Retornando o conteúdo renderizado.
     }
 }

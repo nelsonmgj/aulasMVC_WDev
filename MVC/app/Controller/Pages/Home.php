@@ -16,6 +16,10 @@ class Home{
     /*Método para retornar o conteúdo (view) da classe Home. Retorna uma string.*/
 
     public static function getHome(){
-        return View::render('Pages/Home');
+        return View::render('Pages/Home',[
+            'name' => 'Canal do Aprendiz',
+            'description' => 'canal: nelsonmgj.com.br'
+        ]);
+        //O array foi colocado agora para inserir o conteúdo dinâmico na página.
     }
 }
